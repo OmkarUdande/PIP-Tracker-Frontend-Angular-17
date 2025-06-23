@@ -2,3 +2,26 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+
+.input {
+  @apply w-full border border-gray-300 p-2 rounded focus:outline-none focus:ring-2 focus:ring-rose-500;
+}
+
+.file-input {
+  @apply block w-full text-sm text-gray-900 file:mr-4 file:py-2 file:px-4 file:rounded-full
+  file:border-0 file:text-sm file:font-semibold file:bg-rose-100 file:text-rose-700
+  hover:file:bg-rose-200;
+}
+.input {
+  @apply w-full border border-gray-300 p-2 rounded focus:outline-none focus:ring-2 focus:ring-rose-500;
+}
+
+.toggle-style {
+  @apply appearance-none w-10 h-5 rounded-full bg-gray-300 checked:bg-rose-600 relative cursor-pointer;
+  background-image: linear-gradient(to right, #fff 50%, transparent 50%);
+  background-size: 200% 100%;
+  background-position: right bottom;
+  transition: background-position 0.3s ease-in-out;
+}

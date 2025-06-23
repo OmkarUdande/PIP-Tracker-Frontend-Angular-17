@@ -1,0 +1,46 @@
+<div class="max-w-3xl mx-auto p-6 space-y-8">
+  <h2 class="text-2xl font-bold text-rose-700">HR Console Settings</h2>
+
+  <!-- Appearance -->
+  <div class="bg-white rounded-lg shadow p-5 space-y-4">
+    <h3 class="text-lg font-semibold text-gray-800">Appearance</h3>
+    <div class="flex items-center justify-between">
+      <p class="text-sm text-gray-600">Dark Mode</p>
+      <label class="inline-flex items-center cursor-pointer">
+        <input type="checkbox" class="sr-only peer">
+        <div class="w-11 h-6 bg-gray-300 rounded-full peer peer-checked:bg-rose-600 relative transition-all duration-300">
+          <div
+            class="absolute left-1 top-1 bg-white w-4 h-4 rounded-full transition-transform duration-300 peer-checked:translate-x-5">
+          </div>
+        </div>
+      </label>
+    </div>
+  </div>
+
+  <!-- Notifications -->
+  <div class="bg-white rounded-lg shadow p-5 space-y-4">
+    <h3 class="text-lg font-semibold text-gray-800">Notifications</h3>
+    <div class="flex items-center justify-between">
+      <p class="text-sm text-gray-600">Enable Toast Alerts</p>
+      <input type="checkbox" class="toggle-style" checked>
+    </div>
+    <div class="flex items-center justify-between">
+      <p class="text-sm text-gray-600">Email Reminders</p>
+      <input type="checkbox" class="toggle-style">
+    </div>
+  </div>
+
+  <!-- Personalization -->
+  <div class="bg-white rounded-lg shadow p-5 space-y-4">
+    <h3 class="text-lg font-semibold text-gray-800">Personalization</h3>
+    <label class="block mb-2 text-sm text-gray-600">Preferred Theme</label>
+    <select class="input">
+      <option>Rose</option>
+      <option>Indigo</option>
+      <option>Emerald</option>
+    </select>
+
+    <label class="block mt-4 mb-2 text-sm text-gray-600">Dashboard Greeting</label>
+    <input type="text" placeholder="Welcome, HR Partner" class="input" />
+  </div>
+</div>

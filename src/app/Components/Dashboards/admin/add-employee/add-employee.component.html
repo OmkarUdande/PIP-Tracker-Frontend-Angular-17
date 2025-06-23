@@ -1,0 +1,44 @@
+<form class="max-w-4xl mx-auto bg-white p-8 rounded-lg shadow space-y-6">
+  <h2 class="text-2xl font-semibold text-rose-600">Add New Employee</h2>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <input type="text" placeholder="Employee ID" class="input" />
+    <input type="text" placeholder="Name" class="input" />
+
+    <input type="email" placeholder="Email" class="input" />
+    <input type="password" placeholder="Password" class="input" />
+
+    <select class="input">
+      <option disabled selected>Select Role</option>
+      <option>EMPLOYEE</option>
+      <option>MANAGER</option>
+    </select>
+
+    <input type="text" placeholder="Department" class="input" />
+    <input type="text" placeholder="Designation" class="input" />
+    <input type="text" placeholder="Skills (comma-separated)" class="input" />
+    <input type="text" placeholder="Current KRA" class="input" />
+    <input type="text" placeholder="KPI" class="input" />
+    <input type="text" placeholder="Manager ID" class="input" />
+
+    <!-- File input for photo -->
+    <div>
+      <label class="block text-sm text-gray-600 mb-1">Upload Photo</label>
+      <input type="file" class="file-input" accept="image/*" />
+    </div>
+
+    <input type="date" placeholder="Joining Date" class="input" />
+
+    <select class="input">
+      <option disabled selected>Select Status</option>
+      <option>ACTIVE</option>
+      <option>INACTIVE</option>
+      <option>UNDER_PIP</option>
+    </select>
+  </div>
+
+  <button type="submit"
+    class="w-full md:w-auto bg-rose-600 text-white px-6 py-2 rounded hover:bg-rose-700 transition">
+    Submit
+  </button>
+</form>
