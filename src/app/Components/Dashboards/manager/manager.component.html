@@ -1,37 +1,77 @@
 <div class="flex h-screen bg-gray-100">
-
   <!-- Sidebar -->
-  <aside class="w-64 bg-gradient-to-br from-blue-800 via-blue-700 to-cyan-600 text-white flex flex-col p-6">
-    <div class="mb-8">
-      <img src="assets/logos/pip.png" alt="PIP Logo" class="h-10 mb-3" />
-      <h1 class="text-xl font-semibold tracking-wide" style="font-family: 'Orbitron', sans-serif;">
-        Manager Panel
-      </h1>
+  <aside class="w-64 bg-gradient-to-br from-rose-700 via-red-500 to-orange-400 text-white flex flex-col justify-between p-6">
+    <!-- Logo + Title -->
+    <div>
+      <div class="mb-8">
+        <img src="assets/logos/pip.png" alt="PIP Logo" class="h-10 mb-3" />
+        <h1 class="text-xl font-semibold tracking-wide" style="font-family: 'Orbitron', sans-serif;">
+          Manager Panel
+        </h1>
+      </div>
+
+      <!-- Navigation -->
+      <nav class="space-y-4">
+        <button (click)="currentView = 'Manager-dashboard'"
+          class="w-full text-left block px-4 py-2 rounded hover:bg-white hover:text-rose-700 transition font-medium">
+          Dashboard
+        </button>
+
+        <button (click)="currentView = 'pip-details'"
+          class="w-full text-left block px-4 py-2 rounded hover:bg-white hover:text-rose-700 transition font-medium">
+          PIP Details
+        </button>
+
+        <button (click)="currentView = 'Employee-list'"
+          class="w-full text-left block px-4 py-2 rounded hover:bg-white hover:text-rose-700 transition font-medium">
+          Employee-list
+        </button>
+
+        <button (click)="currentView = 'profile'"
+          class="w-full text-left block px-4 py-2 rounded hover:bg-white hover:text-rose-700 transition font-medium">
+          Profile
+        </button>
+
+        <button (click)="currentView = 'Settings'"
+          class="w-full text-left block px-4 py-2 rounded hover:bg-white hover:text-rose-700 transition font-medium">
+          Settings
+        </button>
+      </nav>
     </div>
-    <nav class="space-y-4">
-      <a href="#" class="block px-4 py-2 rounded hover:bg-white hover:text-blue-800 transition font-medium">Overview</a>
-      <a href="#" class="block px-4 py-2 rounded hover:bg-white hover:text-blue-800 transition font-medium">Team Reviews</a>
-      <a href="#" class="block px-4 py-2 rounded hover:bg-white hover:text-blue-800 transition font-medium">Performance Stats</a>
-      <a href="#" class="block px-4 py-2 rounded hover:bg-white hover:text-blue-800 transition font-medium">Approvals</a>
-    </nav>
+
+    <!-- Logout Button -->
+    <div class="pt-6 border-t border-rose-300">
+      <button
+        class="block w-full px-4 py-2 mt-2 rounded bg-white text-rose-700 text-center hover:bg-rose-100 transition font-medium"
+        (click)="logout()">
+        Logout
+      </button>
+    </div>
   </aside>
 
-  <!-- Main content -->
+  <!-- Main Area -->
   <div class="flex-1 flex flex-col">
     <!-- Header -->
-    <header class="bg-gradient-to-r from-blue-600 via-blue-500 to-cyan-500 text-white px-6 py-4 shadow flex justify-between items-center">
-      <h2 class="text-xl font-bold">Welcome, Manager</h2>
+    <header
+      class="bg-gradient-to-r from-rose-600 via-red-500 to-orange-500 text-white px-6 py-4 shadow flex justify-between items-center">
+      <h2 class="text-xl font-bold capitalize">Welcome, Manager</h2>
       <div class="flex items-center space-x-4">
-        <span class="text-sm">Priya Sharma</span>
-        <img src="https://plchldr.co/i/40x40?bg=004080" alt="Avatar" class="rounded-full h-8 w-8">
+        <span class="text-sm">Omkar</span>
+        <img src="assets/manager.png" alt="Avatar" class="rounded-full h-8 w-8 border-2 border-white">
       </div>
     </header>
 
-    <!-- Content -->
-    <main class="flex-1 p-6">
-      <p class="text-gray-700 text-lg">
-        View team progress, approve reports, and track real-time performance insights tailored for leadership.
-      </p>
+    <!-- Main Content -->
+    <main class="flex-1 p-6 overflow-y-auto">
+      <div class="text-xl font-semibold mb-4 capitalize text-rose-600">{{ currentView }}</div>
+
+      <!-- Conditional Component Rendering -->
+      <app-addashboard *ngIf="currentView === 'Manager-dashboard'"></app-addashboard>
+      <app-pipdetails *ngIf="currentView === 'pip-details'"></app-pipdetails>
+      <app-employee-list *ngIf="currentView === 'Employee-list'"></app-employee-list>
+      <app-profile *ngIf="currentView === 'profile'"></app-profile>
+      <app-settings *ngIf="currentView === 'Settings'" [isDarkMode]="isDarkMode" [toggleDarkMode]="toggleDarkMode.bind(this)">
+      </app-settings>
     </main>
   </div>
 </div>

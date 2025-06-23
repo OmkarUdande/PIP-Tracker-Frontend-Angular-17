@@ -1,0 +1,16 @@
+<label class="flex items-center space-x-3">
+  <input type="checkbox"
+         class="sr-only"
+         [checked]="isDarkMode"
+         (change)="toggleDarkMode()" />
+
+  <div class="relative inline-block w-10 mr-2 align-middle select-none transition duration-200 ease-in">
+    <div
+      class="toggle-path bg-gray-200 dark:bg-gray-600 w-10 h-5 rounded-full shadow-inner"></div>
+    <div
+      class="toggle-circle absolute left-0 top-0 bg-white dark:bg-gray-300 w-5 h-5 rounded-full shadow transform transition-transform duration-200 ease-in"
+      [class.translate-x-full]="isDarkMode"></div>
+  </div>
+
+  <span class="text-gray-700 dark:text-gray-300">Dark Mode</span>
+</label>

@@ -1,0 +1,31 @@
+<div class="min-h-screen bg-gray-100 dark:bg-black text-gray-900 dark:text-white p-6 transition-colors duration-300">
+  <!-- Heading -->
+  <h2 class="text-2xl font-semibold mb-6 text-gray-800 dark:text-white">Learning Resources</h2>
+
+  <!-- Filter Dropdown -->
+  <div class="mb-4">
+    <label for="topicFilter" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+      Filter by Topic
+    </label>
+    <select
+      id="topicFilter"
+      [(ngModel)]="selectedTopic"
+      class="w-full md:w-64 p-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-800 text-gray-700 dark:text-white focus:outline-none focus:ring focus:ring-blue-400 dark:focus:ring-blue-500 transition"
+    >
+      <option *ngFor="let topic of uniqueTopics" [value]="topic">{{ topic }}</option>
+    </select>
+  </div>
+
+  <!-- Resource Cards -->
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+    <div
+      *ngFor="let resource of filteredResources"
+      class="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg shadow-sm p-4 hover:shadow-md transition-all"
+    >
+      <h3 class="text-lg font-semibold text-blue-600 dark:text-blue-400 hover:underline transition">
+        <a [href]="resource.link" target="_blank" rel="noopener">{{ resource.title }}</a>
+      </h3>
+      <p class="text-sm text-gray-600 dark:text-gray-300 mt-1">Topic: {{ resource.topic }}</p>
+    </div>
+  </div>
+</div>

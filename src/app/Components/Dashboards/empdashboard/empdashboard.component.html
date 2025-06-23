@@ -1,35 +1,67 @@
-<div class="flex h-screen bg-gray-100">
-
+<div class="flex min-h-screen bg-gray-100 dark:bg-gray-950 text-gray-900 dark:text-gray-100 transition-colors duration-300">
   <!-- Sidebar -->
-  <aside class="w-64 bg-gradient-to-br from-purple-700 via-indigo-700 to-pink-600 text-white flex flex-col p-6">
+  <aside class="w-64 bg-gradient-to-br from-purple-700 via-indigo-700 to-pink-600 dark:from-gray-800 dark:via-gray-900 dark:to-gray-950 text-white flex flex-col p-6">
     <div class="mb-8">
       <img src="assets/logos/pip.png" alt="PIP Logo" class="h-10 mb-3" />
       <h1 class="text-xl font-semibold tracking-wide" style="font-family: 'Orbitron', sans-serif;">
         Pro Tracker
       </h1>
     </div>
-    <nav class="space-y-4">
-      <a href="#" class="block px-4 py-2 rounded hover:bg-white hover:text-purple-700 transition font-medium">Dashboard</a>
-      <a href="#" class="block px-4 py-2 rounded hover:bg-white hover:text-purple-700 transition font-medium">Reports</a>
-      <a href="#" class="block px-4 py-2 rounded hover:bg-white hover:text-purple-700 transition font-medium">Users</a>
-      <a href="#" class="block px-4 py-2 rounded hover:bg-white hover:text-purple-700 transition font-medium">Settings</a>
+
+    <!-- Navigation -->
+    <nav class="flex-1 space-y-4">
+      <a (click)="currentView = 'dashboard'" routerLinkActive="font-bold"
+         class="block px-4 py-2 rounded hover:bg-white hover:text-purple-700 transition">Dashboard</a>
+      <a (click)="currentView = 'tasks'" routerLinkActive="font-bold"
+         class="block px-4 py-2 rounded hover:bg-white hover:text-purple-700 transition">Tasks</a>
+      <a (click)="currentView = 'feedback'" routerLinkActive="font-bold"
+         class="block px-4 py-2 rounded hover:bg-white hover:text-purple-700 transition">Feedback</a>
+      <a (click)="currentView = 'resources'" routerLinkActive="font-bold"
+         class="block px-4 py-2 rounded hover:bg-white hover:text-purple-700 transition">Learning</a>
+      <a (click)="currentView = 'support'" routerLinkActive="font-bold"
+         class="block px-4 py-2 rounded hover:bg-white hover:text-purple-700 transition">Support</a>
+      <a (click)="currentView = 'profile'" routerLinkActive="font-bold"
+         class="block px-4 py-2 rounded hover:bg-white hover:text-purple-700 transition">Profile</a>
+      <a (click)="currentView = 'goals'" routerLinkActive="font-bold"
+         class="block px-4 py-2 rounded hover:bg-white hover:text-purple-700 transition">Goals</a>
+             <!-- Bottom Actions -->
+    <div class="mt-auto space-y-2 border-t border-white/30 pt-4">
+      <a (click)="currentView = 'settings'" routerLinkActive="font-bold"
+         class="block px-4 py-2 text-sm text-white rounded hover:bg-white hover:text-purple-700 transition">⚙️ Settings</a>
+
+      <button (click)="logout()"
+              class="w-full text-left px-4 py-2 text-sm text-red-200 hover:text-red-600 hover:bg-white rounded transition">
+        🔓 Logout
+      </button>
+    </div>
     </nav>
+
+
   </aside>
 
   <!-- Main content -->
-  <div class="flex-1 flex flex-col">
+  <div class="flex-1 flex flex-col min-h-screen">
     <!-- Header -->
-    <header class="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white px-6 py-4 shadow flex justify-between items-center">
-      <h2 class="text-xl font-bold">Welcome to Pro Tracker</h2>
-      <div class="flex items-center space-x-4">
-        <span class="text-sm">Hafiz Haziq</span>
-        <img src="https://plchldr.co/i/40x40?bg=111111" alt="Avatar" class="rounded-full h-8 w-8">
-      </div>
+    <header class="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 dark:from-gray-800 dark:via-gray-900 dark:to-gray-950 text-white px-6 py-4 shadow flex justify-between items-center">
+      <h2 class="text-xl font-bold">Welcome to EmpowerBoard</h2>
+      <img src="assets/images/pic1.png" alt="User" class="rounded-full h-8 w-8 border-2 border-white shadow" />
     </header>
 
-    <!-- Content -->
-    <main class="flex-1 p-6">
-      <p class="text-gray-700 text-lg">Your dashboard content goes here.</p>
+    <!-- Current View Label -->
+    <div class="bg-indigo-50 dark:bg-gray-800 text-indigo-800 dark:text-indigo-200 text-sm font-medium px-4 py-2 shadow-sm">
+      Current View: {{ currentView | titlecase }}
+    </div>
+
+    <!-- Routed Views -->
+    <main class="flex-1 p-6 overflow-y-auto">
+      <app-dashboard-overview *ngIf="currentView === 'dashboard'"></app-dashboard-overview>
+      <app-employee-tasks *ngIf="currentView === 'tasks'"></app-employee-tasks>
+      <app-feedback-notes *ngIf="currentView === 'feedback'"></app-feedback-notes>
+      <app-learning-resources *ngIf="currentView === 'resources'"></app-learning-resources>
+      <app-support-queries *ngIf="currentView === 'support'"></app-support-queries>
+      <app-profile-settings *ngIf="currentView === 'profile'"></app-profile-settings>
+      <app-performance-goals *ngIf="currentView === 'goals'"></app-performance-goals>
+      <app-settings *ngIf="currentView === 'settings'"></app-settings>
     </main>
   </div>
 </div>

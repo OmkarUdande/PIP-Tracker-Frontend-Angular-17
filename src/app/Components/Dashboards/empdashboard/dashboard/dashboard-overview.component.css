@@ -1,0 +1,8 @@
+:host {
+    display: block;
+  }
+  
+  /* Optional: If you want even smoother hover animations */
+  .card-hover {
+    transition: all 0.3s ease-in-out;
+  }

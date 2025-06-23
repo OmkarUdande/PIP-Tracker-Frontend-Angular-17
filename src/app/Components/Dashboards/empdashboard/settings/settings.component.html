@@ -1,0 +1,51 @@
+<!-- Outer wrapper for centered layout -->
+<div class="max-w-3xl mx-auto p-6 space-y-8">
+
+  <!-- Section Title -->
+  <h2 class="text-2xl font-bold text-indigo-700 dark:text-indigo-400">My Settings</h2>
+
+  <!-- Display Settings -->
+  <div class="bg-white dark:bg-gray-900 dark:text-white rounded-lg shadow p-5 space-y-4 transition-colors duration-300">
+    <h3 class="text-lg font-semibold">Display Preferences</h3>
+    <div class="flex items-center justify-between">
+      <p class="text-sm text-gray-600 dark:text-gray-300">Dark Mode</p>
+      <label class="inline-flex items-center cursor-pointer">
+        <input
+          type="checkbox"
+          class="sr-only peer"
+          [(ngModel)]="darkMode"
+          (change)="toggleDarkMode()"
+        />
+        <div class="w-11 h-6 bg-gray-300 dark:bg-gray-600 rounded-full peer-checked:bg-indigo-600 relative transition">
+          <div class="absolute left-1 top-1 bg-white w-4 h-4 rounded-full transition-transform peer-checked:translate-x-5"></div>
+        </div>
+      </label>
+    </div>
+  </div>
+
+  <!-- Notification Settings -->
+  <div class="bg-white dark:bg-gray-900 dark:text-white rounded-lg shadow p-5 space-y-4 transition-colors duration-300">
+    <h3 class="text-lg font-semibold">Notifications</h3>
+    <div class="flex items-center justify-between">
+      <span class="text-sm text-gray-600 dark:text-gray-300">Email Reminders</span>
+      <input type="checkbox" [(ngModel)]="emailReminders" class="toggle-style" />
+    </div>
+    <div class="flex items-center justify-between">
+      <span class="text-sm text-gray-600 dark:text-gray-300">System Alerts</span>
+      <input type="checkbox" [(ngModel)]="systemAlerts" class="toggle-style" />
+    </div>
+  </div>
+
+  <!-- Personal Info -->
+  <div class="bg-white dark:bg-gray-900 dark:text-white rounded-lg shadow p-5 space-y-4 transition-colors duration-300">
+    <h3 class="text-lg font-semibold">Personalization</h3>
+    <label class="block mb-2 text-sm text-gray-600 dark:text-gray-300">Greeting Message</label>
+    <input
+      type="text"
+      [(ngModel)]="greeting"
+      class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-800 text-gray-800 dark:text-white transition"
+      placeholder="Welcome, EmpowerBoard"
+    />
+  </div>
+
+</div>
