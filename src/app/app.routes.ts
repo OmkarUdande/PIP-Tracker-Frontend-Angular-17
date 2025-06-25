@@ -4,6 +4,7 @@ import { LoginComponent } from './Components/login/login.component';
 import { EmpdashboardComponent } from './Components/Dashboards/empdashboard/empdashboard.component';
 import { ManagerComponent } from './Components/Dashboards/manager/manager.component';
 import { AdminComponent } from './Components/Dashboards/admin/admin.component';
+import { HRComponent } from './Components/Dashboards/hr/hr.component';
 
 
 
@@ -13,5 +14,6 @@ export const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'empdashboard', component: EmpdashboardComponent },
   { path: 'manager', component: ManagerComponent },
-  { path: 'admin', component: AdminComponent }
+  { path: 'admin', component: AdminComponent },
+  {path:'hr',component:HRComponent} 
 ];

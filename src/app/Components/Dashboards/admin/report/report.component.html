@@ -1,0 +1,35 @@
+<div class="max-w-5xl mx-auto mt-10 bg-white shadow rounded-lg p-8">
+  <h2 class="text-xl font-bold mb-6 text-gray-800">Technical Reports</h2>
+
+  <div class="overflow-x-auto">
+    <table class="min-w-full border border-slate-300 text-sm">
+      <thead class="bg-slate-100 text-gray-700">
+        <tr>
+          <th class="px-4 py-2 text-left border-b">Report Title</th>
+          <th class="px-4 py-2 text-left border-b">Date</th>
+          <th class="px-4 py-2 text-left border-b">Author</th>
+          <th class="px-4 py-2 text-left border-b">Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let report of technicalReports" class="hover:bg-slate-50">
+          <td class="px-4 py-3 border-b font-medium">{{ report.title }}</td>
+          <td class="px-4 py-3 border-b">{{ report.date }}</td>
+          <td class="px-4 py-3 border-b">{{ report.author }}</td>
+          <td class="px-4 py-3 border-b">
+            <span
+              class="px-2 py-1 text-xs rounded font-semibold"
+              [ngClass]="{
+                'bg-green-100 text-green-700': report.status === 'Completed' || report.status === 'Success',
+                'bg-yellow-100 text-yellow-700': report.status === 'In Review',
+                'bg-red-100 text-red-700': report.status === 'Failed'
+              }"
+            >
+              {{ report.status }}
+            </span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -1,22 +1,24 @@
 import { Component } from '@angular/core';
-import { AddashboardComponent } from './addashboard/addashboard.component';
-import { AddEmployeeComponent } from './add-employee/add-employee.component';
-import { EmployeeDirComponent } from './employee-dir/employee-dir.component';
-import { PIPTrackerComponent } from './pip-tracker/pip-tracker.component';
-import { ManagersComponent } from './managers/managers.component';
-import { SettingsComponent } from './settings/settings.component';
+
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
+import { DashComponent } from './dash/dash.component';
+import { AddhrComponent } from './addhr/addhr.component';
+import { ReportComponent } from './report/report.component';
+import { HrlistComponent } from "./hrlist/hrlist.component";
+
 
 @Component({
   selector: 'app-admin',
   standalone: true,
-  imports: [AddashboardComponent,AddEmployeeComponent,EmployeeDirComponent,PIPTrackerComponent,ManagersComponent,SettingsComponent,CommonModule],
+  imports: [CommonModule, DashComponent, AddhrComponent, ReportComponent, HrlistComponent],
   templateUrl: './admin.component.html',
   styleUrl: './admin.component.css'
 })
 export class AdminComponent {
-currentView="Dashboard"
+currentView="Dash"
+
+today: Date = new Date();
 
   constructor(private router: Router) { }
 

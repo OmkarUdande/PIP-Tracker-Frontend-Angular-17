@@ -37,6 +37,9 @@ navigatetomanager() {
   this.router.navigate(['/manager']);
 }
 
+navigatetohr() {
+  this.router.navigate(['/hr']);
+}
 navigatetoadmin() {
   this.router.navigate(['/admin']);
 }

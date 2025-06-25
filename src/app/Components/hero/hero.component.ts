@@ -10,6 +10,7 @@ import { Router } from "@angular/router";
 })
 export class HeroComponent {
 constructor(private router: Router) {}
+currentYear: number = new Date().getFullYear();
 
 onLoginClick() {
   this.router.navigate(['/login']);

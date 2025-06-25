@@ -1,19 +1,20 @@
 import { Routes } from '@angular/router';
 import { AdminComponent } from './admin.component';
-import { AddashboardComponent } from './addashboard/addashboard.component';
-import { AddEmployeeComponent } from './add-employee/add-employee.component';
-import { EmployeeDirComponent } from './employee-dir/employee-dir.component';
-import { ManagersComponent } from './managers/managers.component';
-import { PIPTrackerComponent } from './pip-tracker/pip-tracker.component';
-import { SettingsComponent } from './settings/settings.component';
+import { AddhrComponent } from './addhr/addhr.component';
+import { DashComponent } from './dash/dash.component';
+import { ReportComponent } from './report/report.component';
+import { HrlistComponent } from './hrlist/hrlist.component';
+
+
 
 
 export const branchManagerRoutes: Routes = [
-  { path: '', component: AddashboardComponent }, // Default view
-  { path: 'add-employee', component: AddEmployeeComponent },
-  { path: 'Employee-Dir', component: EmployeeDirComponent },
-  { path: 'managers', component:ManagersComponent },
-  { path: 'pip', component: PIPTrackerComponent },
-  { path:'settings', component:SettingsComponent}
+  // { path: '', component: AdminComponent },
+  {path:'',component:DashComponent},
+  {path:'addhr',component: AddhrComponent},
+  {path:'report',component:ReportComponent}, // Default view
+  {path:'hrlist',component:HrlistComponent}, // Default view
+
+
 
 ];

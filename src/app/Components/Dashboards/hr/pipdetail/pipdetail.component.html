@@ -1,0 +1,31 @@
+<div class="space-y-6">
+  <h2 class="text-xl font-bold text-rose-700">Review for {{ employee?.name }}</h2>
+  <p>Department: <strong>{{ employee?.department }}</strong></p>
+
+  <!-- Chart Section -->
+  <div class="border rounded p-4 shadow bg-white">
+    <p class="text-sm font-semibold text-rose-600 mb-2">📊 Performance Chart</p>
+    <div class="w-full max-w-2xl mx-auto">
+   <div class="border rounded p-4 shadow bg-white">
+  <p class="text-sm font-semibold text-rose-600 mb-2">📊 Development Progress Chart</p>
+  <canvas #pipProgressChart class="w-full h-64"></canvas>
+</div>
+
+    </div>
+  </div>
+
+  <!-- Feedback Section -->
+  <div class="border rounded p-4 shadow bg-white">
+    <p class="text-sm text-gray-500 mb-2">📝 PIP Review Form</p>
+    <textarea
+      placeholder="Enter feedback..."
+      class="w-full border border-gray-300 p-2 rounded resize-none focus:outline-none focus:ring-2 focus:ring-rose-500"
+      rows="5">
+    </textarea>
+  </div>
+
+  <button (click)="back.emit()"
+    class="px-4 py-2 bg-rose-600 text-white rounded hover:bg-rose-700 transition">
+    ← Back to Table
+  </button>
+</div>

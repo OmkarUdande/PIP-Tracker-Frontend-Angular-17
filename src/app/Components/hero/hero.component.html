@@ -22,12 +22,57 @@
           </svg>
         </button>
       </div>
-      <div class="hidden lg:flex lg:gap-x-12">
-        <a href="#" class="text-sm font-semibold text-gray-900">Product</a>
-        <a href="#" class="text-sm font-semibold text-gray-900">Features</a>
-        <a href="#" class="text-sm font-semibold text-gray-900">Marketplace</a>
-        <a href="#" class="text-sm font-semibold text-gray-900">Company</a>
+      <!-- the nav card -->
+<div class="relative p-[2px] rounded-xl bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 animate-borderGlow">
+  <div class="bg-gray-900/70 backdrop-blur-md rounded-xl p-4 shadow-xl flex gap-6 justify-center items-center flex-wrap">
+
+    <!-- Item 1 -->
+    <div class="relative group">
+      <a href="#" class="text-white font-semibold text-lg tracking-wide hover:scale-105 transform transition-all duration-300">
+        ✨ Performance Boost
+      </a>
+      <div class="absolute top-full mt-2 w-56 bg-indigo-200/30 backdrop-blur-md text-gray-900 text-sm rounded-lg p-3 shadow-lg ring-1 ring-indigo-300/30 opacity-0 group-hover:opacity-100 transition duration-300">
+Monitor employee performance and track their growth effortlessly with <b>Pro Tracker</b> — your smart companion for streamlined team development.
       </div>
+    </div>
+
+    <!-- Item 2 -->
+    <div class="relative group">
+      <a href="#" class="text-white font-semibold text-lg tracking-wide hover:scale-105 transform transition-all duration-300">
+        🚀 Optimization
+      </a>
+      <div class="absolute top-full mt-2 w-56 bg-indigo-200/30 backdrop-blur-md text-gray-900 text-sm rounded-lg p-3 shadow-lg ring-1 ring-indigo-300/30 opacity-0 group-hover:opacity-100 transition duration-300">
+    Ensure optimized workflows and accurate performance records with the power of <b>Pro Tracker</b> — your go-to solution for smarter team management.
+      </div>
+    </div>
+
+    <!-- Item 3 -->
+    <div class="relative group">
+      <a href="#" class="text-white font-semibold text-lg tracking-wide hover:scale-105 transform transition-all duration-300">
+        🛒 Market Growth
+      </a>
+      <div class="absolute top-full mt-2 w-56 bg-indigo-200/30 backdrop-blur-md text-gray-900 text-sm rounded-lg p-3 shadow-lg ring-1 ring-indigo-300/30 opacity-0 group-hover:opacity-100 transition duration-300">
+  Drive market growth and strategic insight effortlessly with <b>Pro Tracker</b> — empowering data-backed decisions that scale with your vision.
+      </div>
+    </div>
+
+    <!-- Item 4 -->
+    <div class="relative group">
+      <a href="#" class="text-white font-semibold text-lg tracking-wide hover:scale-105 transform transition-all duration-300">
+        🏢 Beneficial
+      </a>
+      <div class="absolute top-full mt-2 w-56 bg-indigo-200/30 backdrop-blur-md text-gray-900 text-sm rounded-lg p-3 shadow-lg ring-1 ring-indigo-300/30 opacity-0 group-hover:opacity-100 transition duration-300">
+       Unlock actionable insights, boost accountability, and foster consistent growth — all with the intelligent precision of <b>Pro Tracker</b>
+      </div>
+    </div>
+
+  </div>
+</div>
+<!-- nav card end -->
+
+
+
+
       <div class="hidden lg:flex lg:flex-1 lg:justify-end">
   <button class="text-sm font-semibold text-gray-900" >
    <a class="..." (click)="onLoginClick()">Log in <span aria-hidden="true">&rarr;</span></a>
@@ -76,7 +121,7 @@
     <div class="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56">
       <div class="hidden sm:mb-8 sm:flex sm:justify-center">
         <div class="relative rounded-full px-3 py-1 text-sm text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
-          Simplifying performance improvement. <a href="#" class="font-semibold text-indigo-600">Learn more <span aria-hidden="true">&rarr;</span></a>
+          Simplifying performance improvement. <a href="https://en.wikipedia.org/wiki/Employment" class="font-semibold text-indigo-600">Learn more <span aria-hidden="true">&rarr;</span></a>
         </div>
       </div>
       <div class="text-center">
@@ -99,5 +144,32 @@
     <div class="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]" aria-hidden="true">
       <div class="relative left-[calc(50%+3rem)] aspect-[1155/678] w-[36.0625rem] -translate-x-1/2 bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%+36rem)] sm:w-[72.1875rem]" style="clip-path: polygon"></div>
     </div>
+
   </div>
+      <footer class="relative z-40 bg-gray-900/70 backdrop-blur-md border-t border-indigo-500/20 text-white">
+  <div class="mx-auto max-w-7xl px-6 py-12 sm:px-8 sm:py-16">
+    <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center">
+      <!-- Branding -->
+      <div class="flex items-center gap-3">
+        <img src="assets/logos/pip.png" alt="Pro Tracker Logo" class="h-10 w-auto" />
+        <span class="text-xl font-bold tracking-tight text-white font-copilot">Pro Tracker</span>
+      </div>
+
+      <!-- Navigation Links -->
+      <div class="mt-6 sm:mt-0 flex flex-wrap gap-6 text-sm font-medium text-gray-300">
+        <a href="#" class="hover:text-white transition">About</a>
+        <a href="#" class="hover:text-white transition">Features</a>
+        <a href="#" class="hover:text-white transition">Pricing</a>
+        <a href="#" class="hover:text-white transition">Support</a>
+        <a href="#" class="hover:text-white transition">Terms</a>
+      </div>
+    </div>
+
+    <!-- Divider -->
+    <div class="mt-10 border-t border-gray-700/30 pt-6 text-xs text-center text-gray-400">
+      © {{ currentYear }} Pro Tracker. All rights reserved.
+    </div>
+  </div>
+</footer>
+
 </div>
