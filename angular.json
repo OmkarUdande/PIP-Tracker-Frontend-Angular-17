@@ -7,6 +7,7 @@
       "projectType": "application",
       "schematics": {},
       "root": "",
+      "inlineFonts": false,
       "sourceRoot": "src",
       "prefix": "app",
       "architect": {
@@ -17,7 +18,9 @@
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
-              "zone.js"
+              "zone.js",
+              "src/polyfills.ts"
+
             ],
             "tsConfig": "tsconfig.app.json",
             "assets": [
@@ -25,7 +28,8 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "node_modules/ngx-toastr/toastr.css"
             ],
             "scripts": [],
             "server": "src/main.server.ts",
@@ -91,7 +95,8 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+            ]
           }
         }
       }

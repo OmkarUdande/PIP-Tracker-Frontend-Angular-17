@@ -1,29 +1,57 @@
 import { Component } from '@angular/core';
-
 import { CommonModule } from '@angular/common';
-import { Router } from '@angular/router';
-import { DashComponent } from './dash/dash.component';
+import { Router, RouterOutlet } from '@angular/router';
 import { AddhrComponent } from './addhr/addhr.component';
 import { ReportComponent } from './report/report.component';
-import { HrlistComponent } from "./hrlist/hrlist.component";
-
-
+import { EmpListComponent } from './emp-list/emp-list.component';
+import { UpdateRecordsComponent } from "./update-records/update-records.component";
+import { AssignManagerComponent } from '../hr/assign-manager/assign-manager.component';
+import { PIPTrackComponent } from "./pip-track/pip-track.component";
+import { DashComponent } from './dash/dash.component'; 
 @Component({
   selector: 'app-admin',
   standalone: true,
-  imports: [CommonModule, DashComponent, AddhrComponent, ReportComponent, HrlistComponent],
+  imports: [
+    CommonModule, 
+    AddhrComponent, 
+    ReportComponent, 
+    EmpListComponent, 
+    UpdateRecordsComponent, 
+    AssignManagerComponent, 
+    RouterOutlet, 
+    PIPTrackComponent,
+    DashComponent 
+  ],
   templateUrl: './admin.component.html',
-  styleUrl: './admin.component.css'
+  styleUrls: ['./admin.component.css']
 })
 export class AdminComponent {
-currentView="Dash"
+toggleDropdown() {
+throw new Error('Method not implemented.');
+}
 
-today: Date = new Date();
+  currentView = 'addhr';
+  today: Date = new Date();
+  selectedEmployee: any;
 
-  constructor(private router: Router) { }
+  showToast = false;
+  isSidebarOpen = false; 
+notifications: any;
+dropdownOpen: any;
+  
+  constructor(private router: Router) {}
+
+  toggleSidebar() {
+    this.isSidebarOpen = !this.isSidebarOpen;
+  }
 
   logout() {
     this.router.navigate(['/hero']);
+    this.showToast = true;
+    setTimeout(() => this.showToast = false, 3000);
   }
 
+  goBackToLogin() {
+    throw new Error('Method not implemented.');
+  }
 }

@@ -1,47 +1,39 @@
-import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, NgFor } from '@angular/common';
+import { Component, OnInit, inject } from '@angular/core';
+import { EmployeeService } from '../../../../services/employee.service';
 import { FormsModule } from '@angular/forms';
-
-interface Note {
-  type: 'Feedback' | 'Personal';
-  author: string;
-  message: string;
-  date: string;
-}
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-feedback-notes',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, NgFor, FormsModule],
   templateUrl: './feedback-notes.component.html',
   styleUrls: ['./feedback-notes.component.css']
 })
-export class FeedbackNotesComponent {
-  newNote: string = '';
-  notes: Note[] = [
-    {
-      type: 'Feedback',
-      author: 'Manager',
-      message: 'Great job on completing the module ahead of deadline!',
-      date: '2025-06-17'
-    },
-    {
-      type: 'Personal',
-      author: 'Me',
-      message: 'Need to review API error handling this week.',
-      date: '2025-06-18'
-    }
-  ];
+export class FeedbackNotesComponent implements OnInit {
+  receivedFeedbacks: any[] = []; // Sirf received feedbacks ka array hai
+  userId = localStorage.getItem('userId') || localStorage.getItem('employeeId');
+  token = localStorage.getItem('token');
+  private service = inject(EmployeeService);
+  private router = inject(Router);
 
-  addPersonalNote() {
-    if (this.newNote.trim()) {
-      this.notes.unshift({
-        type: 'Personal',
-        author: 'Me',
-        message: this.newNote,
-        date: new Date().toISOString().split('T')[0]
-      });
-      this.newNote = '';
+  ngOnInit(): void {
+    if (!this.userId || !this.token) {
+      console.warn('⚠️ userId or token is missing from localStorage. Redirecting to login.');
+      this.router.navigate(['/login']);
+      return;
     }
+
+    // ✅ Sirf received feedback ke liye API call
+    this.service.getFeedbacksReceived(this.userId, this.token).subscribe({
+      next: (res: any[]) => {
+        this.receivedFeedbacks = res;
+        console.log('✅ Received Feedbacks fetched:', res);
+      },
+      error: (err: any) => {
+        console.error('❌ Received Feedback fetch error:', err);
+      }
+    });
   }
 }

@@ -1,15 +1,31 @@
 import { Routes } from '@angular/router';
-import { EmployeeListComponent } from './employee-list/employee-list.component';
-import { ProfileComponent } from './profile/profile.component';
-import { ManagerDashboardComponent } from './manager-dashboard/manager-dashboard.component';
-import { PIPDetailsComponent } from './pip-details/pip-details.component';
-import { SettingsComponent } from './settings.component';
 
 export const managerRoutes: Routes = [
-{path: 'manager-dashboard',component: ManagerDashboardComponent},
-{ path: 'employees-list', component: EmployeeListComponent },
-{path: 'pip-detail', component:PIPDetailsComponent},
-{ path: 'profile', component: ProfileComponent },
-{path: 'settings', component:SettingsComponent},
-{ path: '', redirectTo: 'dashboard', pathMatch: 'full' }
+  {
+    path: '',
+    loadComponent: () => import('./manager.component').then(m => m.ManagerComponent),
+    children: [
+      {
+        path: 'dashboard',
+        loadComponent: () => import('./manager-dashboard/manager-dashboard.component').then(m => m.ManagerDashboardComponent)
+      },
+      {
+        path: 'employees',
+        loadComponent: () => import('./employee-list/employee-list.component').then(m => m.EmployeeListComponent)
+      },
+      {
+        path: 'performance-review',
+        loadComponent: () => import('./submit-performance-review/submit-performance-review.component').then(m => m.SubmitPerformanceReviewComponent)
+      },
+      {
+        path: '',
+        redirectTo: 'dashboard',
+        pathMatch: 'full'
+      },
+      {
+        path: '**',
+        redirectTo: 'dashboard'
+      }
+    ]
+  }
 ];

@@ -1,0 +1,41 @@
+<div class="p-4 sm:p-6">
+  <h2 class="text-xl sm:text-2xl font-bold text-purple-700 mb-4 sm:mb-6">Skill Gap Form</h2>
+
+  <form (ngSubmit)="onSubmit()" class="space-y-4">
+    <!-- Employee Selection -->
+    <label class="block font-medium text-gray-700">Select Employee</label>
+    <select [(ngModel)]="selectedEmployeeId" name="employee" class="w-full p-2 border rounded">
+      <option value="">-- Select --</option>
+      <option *ngFor="let emp of employees" [value]="emp.id">{{ emp.name }}</option>
+    </select>
+
+    <!-- Required Skills -->
+    <label class="block font-medium text-gray-700">Required Skills</label>
+    <input [(ngModel)]="requiredSkills" name="requiredSkills" class="w-full p-2 border rounded" />
+
+    <!-- Current Skills -->
+    <label class="block font-medium text-gray-700">Current Skills</label>
+    <input [(ngModel)]="currentSkills" name="currentSkills" class="w-full p-2 border rounded" />
+
+    <!-- Gap Level -->
+    <label class="block font-medium text-gray-700">Gap Level</label>
+    <input type="number" [(ngModel)]="gapLevel" name="gapLevel" class="w-full p-2 border rounded" />
+
+    <!-- Skill -->
+    <label class="block font-medium text-gray-700">Skill</label>
+    <input [(ngModel)]="skill" name="skill" class="w-full p-2 border rounded" />
+
+    <!-- Suggested Training -->
+    <label class="block font-medium text-gray-700">Suggested Training</label>
+    <input [(ngModel)]="suggestedTraining" name="suggestedTraining" class="w-full p-2 border rounded" />
+
+    <!-- Submit Button -->
+    <button type="submit" class="bg-purple-700 hover:bg-purple-800 text-white px-6 py-2 rounded">
+      Submit
+    </button>
+  </form>
+
+  <!-- Messages -->
+  <div *ngIf="errorMessage" class="mt-4 text-red-600">{{ errorMessage }}</div>
+  <div *ngIf="successMessage" class="mt-4 text-green-600">{{ successMessage }}</div>
+</div>

@@ -1,40 +1,13 @@
-<div class="max-w-7xl mx-auto p-6 space-y-6">
-  <h2 class="text-2xl font-bold text-rose-700">Employee Directory</h2>
+<div class="min-h-screen bg-gray-100 p-10">
+  <h1 class="text-3xl font-bold text-indigo-700 mb-8 text-center">Employee Directory</h1>
 
-  <!-- Search and Filter -->
-  <div class="flex flex-col md:flex-row md:items-center gap-4">
-    <input type="text" placeholder="Search by name or department"
-      class="w-full md:w-1/2 border border-gray-300 p-2 rounded focus:outline-none focus:ring-2 focus:ring-rose-500" />
-
-    <select class="w-full md:w-40 border border-gray-300 p-2 rounded focus:outline-none focus:ring-2 focus:ring-rose-500">
-      <option selected disabled>Filter by Status</option>
-      <option>ACTIVE</option>
-      <option>INACTIVE</option>
-      <option>UNDER_PIP</option>
-    </select>
-  </div>
-
-  <!-- Employee Grid -->
   <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-    <!-- Employee Card -->
-    <div class="bg-white rounded-lg shadow hover:shadow-lg transition p-5 flex flex-col items-center text-center">
-      <img src="https://plchldr.co/i/80x80?bg=cc3366" alt="Avatar" class="rounded-full h-20 w-20 mb-4" />
-      <h3 class="text-lg font-semibold text-gray-800">Anjali Verma</h3>
-      <p class="text-sm text-gray-500">Senior Designer</p>
-      <p class="text-xs mt-1 text-gray-400">Design Department</p>
-      <span class="mt-2 px-3 py-1 text-xs rounded-full bg-green-100 text-green-700">Active</span>
-      <button class="mt-4 text-sm text-rose-600 hover:underline">View Details</button>
-    </div>
-
-    <!-- Duplicate above block with different mock data for more cards -->
-    <!-- Example: -->
-    <div class="bg-white rounded-lg shadow hover:shadow-lg transition p-5 flex flex-col items-center text-center">
-      <img src="https://plchldr.co/i/80x80?bg=336699" alt="Avatar" class="rounded-full h-20 w-20 mb-4" />
-      <h3 class="text-lg font-semibold text-gray-800">Ramesh Tripathi</h3>
-      <p class="text-sm text-gray-500">Team Manager</p>
-      <p class="text-xs mt-1 text-gray-400">Operations</p>
-      <span class="mt-2 px-3 py-1 text-xs rounded-full bg-yellow-100 text-yellow-700">Under PIP</span>
-      <button class="mt-4 text-sm text-rose-600 hover:underline">View Details</button>
+    <div *ngFor="let emp of employees" class="bg-white rounded-xl shadow p-6 hover:shadow-lg transition">
+      <h2 class="text-xl font-semibold text-gray-800 mb-2">{{ emp.name }}</h2>
+      <p class="text-sm text-gray-600 mb-1">📧 {{ emp.email }}</p>
+      <p class="text-sm text-gray-600 mb-1">🆔 {{ emp.employeeId }}</p>
+      <p class="text-sm text-gray-600 mb-1">🏢 {{ emp.department }}</p>
+      <p class="text-sm font-bold text-green-600">👤 {{ emp.role }}</p>
     </div>
   </div>
 </div>
